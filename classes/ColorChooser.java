@@ -39,5 +39,10 @@ public class ColorChooser
     Color pickedColor = ColorChooser.pickAColor();
     System.out.println(pickedColor);
   }
-  
+
+  // pink java.awt.Color[r=255,g=204,b=204]
+  // yellow java.awt.Color[r=255,g=255,b=0]
+  // purple java.awt.Color[r=255,g=0,b=255]
+  // white java.awt.Color[r=255,g=255,b=255]
+  // dark grey java.awt.Color[r=153,g=153,b=153]
 }
