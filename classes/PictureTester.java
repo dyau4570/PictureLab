@@ -67,6 +67,34 @@ public class PictureTester
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
+
+    public static void testMirrorVerticalRightToLeft() {
+        Picture caterpillar = new Picture("caterpillar.jpg");
+        caterpillar.explore();
+        caterpillar.mirrorVerticalRightToLeft();
+        caterpillar.explore();
+    }
+
+    public static void testMirrorHorizontal() {
+        Picture caterpillar = new Picture("caterpillar.jpg");
+        caterpillar.explore();
+        caterpillar.mirrorHorizontal();
+        caterpillar.explore();
+    }
+
+    public static void testMirrorHorizontalBotToTop() {
+        Picture caterpillar = new Picture("caterpillar.jpg");
+        caterpillar.explore();
+        caterpillar.mirrorHorizontalBotToTop();
+        caterpillar.explore();
+    }
+
+    public static void testMirrorDiagonal() {
+        Picture caterpillar = new Picture("caterpillar.jpg");
+        caterpillar.explore();
+        caterpillar.mirrorDiagonal();
+        caterpillar.explore();
+    }
   
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
@@ -76,7 +104,21 @@ public class PictureTester
     temple.mirrorTemple();
     temple.explore();
   }
-  
+
+    public static void testMirrorArms() {
+        Picture temple = new Picture("snowman.jpg");
+        temple.explore();
+        temple.mirrorArms();
+        temple.explore();
+    }
+
+    public static void testMirrorGull() {
+        Picture temple = new Picture("seagull.jpg");
+        temple.explore();
+        temple.mirrorGull();
+        temple.explore();
+    }
+
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -101,17 +143,17 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
-    testKeepOnlyBlue();
+//    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    testNegate();
-    testGrayscale();
+//    testNegate();
+//    testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
+//    testMirrorTemple();
+      testMirrorArms();
+      testMirrorGull();
+      testMirrorDiagonal();
     //testCollage();
     //testCopy();
     //testEdgeDetection();
@@ -122,6 +164,9 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
-    fixUnderwater();
+//    fixUnderwater();
+      testMirrorVerticalRightToLeft();
+      testMirrorHorizontal();
+      testMirrorHorizontalBotToTop();
   }
 }
