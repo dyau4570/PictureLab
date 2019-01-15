@@ -45,7 +45,17 @@ public class PictureTester
   public static void fixUnderwater() {
     Picture beach = new Picture("water.jpg");
     beach.explore();
-    beach.negate();
+
+    Pixel[][] pixels = beach.getPixels2D();
+
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        if (pixelObj.getBlue() < 160) pixelObj.setBlue(100);
+      }
+    }
+
     beach.explore();
   }
 
@@ -91,11 +101,11 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
-    //testKeepOnlyBlue();
+    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
-//    testGrayscale();
+    testNegate();
+    testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
