@@ -90,7 +90,7 @@ public class PictureTester
     }
 
     public static void testMirrorDiagonal() {
-        Picture caterpillar = new Picture("caterpillar.jpg");
+        Picture caterpillar = new Picture("koala.jpg");
         caterpillar.explore();
         caterpillar.mirrorDiagonal();
         caterpillar.explore();
@@ -151,8 +151,8 @@ public class PictureTester
     //testFixUnderwater();
     //testMirrorVertical();
 //    testMirrorTemple();
-      testMirrorArms();
-      testMirrorGull();
+//      testMirrorArms();
+//      testMirrorGull();
       testMirrorDiagonal();
     //testCollage();
     //testCopy();
@@ -165,8 +165,8 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
 //    fixUnderwater();
-      testMirrorVerticalRightToLeft();
-      testMirrorHorizontal();
-      testMirrorHorizontalBotToTop();
+//      testMirrorVerticalRightToLeft();
+//      testMirrorHorizontal();
+//      testMirrorHorizontalBotToTop();
   }
 }
