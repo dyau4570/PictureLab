@@ -135,6 +135,12 @@ public class PictureTester
     swan.explore();
   }
 
+    public static void testEdgeDetection2()
+    {
+        Picture swan = new Picture("swan.jpg");
+        swan.edgeDetection2(10);
+        swan.explore();
+    }
   public static void testCopy() {
       Picture flower1 = new Picture("flower2.jpg");
       flower1.copy(flower1,0,0);
@@ -169,10 +175,10 @@ public class PictureTester
 //      testMirrorGull();
 //      testMirrorDiagonal();
     //testCollage();
-    testCopy();
-    testMyCollage();
-    //testEdgeDetection();
-    //testEdgeDetection2();
+//    testCopy();
+//    testMyCollage();
+    testEdgeDetection();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);

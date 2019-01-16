@@ -396,28 +396,51 @@ public class Picture extends SimplePicture
     */
   public void edgeDetection(int edgeDist)
   {
-    Pixel leftPixel = null;
-    Pixel rightPixel = null;
-    Pixel[][] pixels = this.getPixels2D();
-    Color rightColor = null;
-    for (int row = 0; row < pixels.length; row++)
-    {
-      for (int col = 0; 
-           col < pixels[0].length-1; col++)
+      Pixel leftPixel = null;
+      Pixel rightPixel = null;
+      Pixel bottomPixel = null;
+      Pixel[][] pixels = this.getPixels2D();
+      Color rightColor = null;
+      Color bottomColor = null;
+      for (int row = 0; row < pixels.length-1; row++)
       {
-        leftPixel = pixels[row][col];
-        rightPixel = pixels[row][col+1];
-        rightColor = rightPixel.getColor();
-        if (leftPixel.colorDistance(rightColor) > 
-            edgeDist)
-          leftPixel.setColor(Color.BLACK);
-        else
-          leftPixel.setColor(Color.WHITE);
+          for (int col = 0;
+               col < pixels[0].length-1; col++)
+          {
+              leftPixel = pixels[row][col];
+              rightPixel = pixels[row][col+1];
+              bottomPixel = pixels[row+1][col];
+              rightColor = rightPixel.getColor();
+              bottomColor = bottomPixel.getColor();
+              if (leftPixel.colorDistance(rightColor) > edgeDist || leftPixel.colorDistance(bottomColor) > edgeDist)
+                  leftPixel.setColor(Color.BLACK);
+              else
+                  leftPixel.setColor(Color.WHITE);
+          }
       }
-    }
   }
-  
-  
+
+  public void edgeDetection2(int edgeDist)
+  {
+      Pixel leftPixel = null;
+      Pixel bottomPixel = null;
+      Pixel[][] pixels = this.getPixels2D();
+      Color bottomColor = null;
+      for (int row = 0; row < pixels.length-1; row++)
+      {
+          for (int col = 0;
+               col < pixels[0].length-1; col++)
+          {
+              leftPixel = pixels[row][col];
+              bottomPixel = pixels[row+1][col];
+              bottomColor = bottomPixel.getColor();
+              if (leftPixel.colorDistance(bottomColor) > edgeDist)
+                    leftPixel.setColor(Color.BLACK);
+                else
+                    leftPixel.setColor(Color.WHITE);
+            }
+        }
+    }
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
