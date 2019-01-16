@@ -213,13 +213,13 @@ public class Picture extends SimplePicture
     }
 
     public void mirrorDiagonal() {
-        int n = 200;
         Pixel[][] pixels = this.getPixels2D();
+        int n = pixels.length;
         Pixel topPixel = null;
         Pixel bottomPixel = null;
 
         for (int row = 0; row < n; row++) {
-            for (int col = 0; col < row; col++) {
+            for (int col = 0; col <= row; col++) {
                 topPixel = pixels[row][col];
                 bottomPixel = pixels[n - 1 - col][n - 1 - row];
                 topPixel.setColor(bottomPixel.getColor());
@@ -332,6 +332,31 @@ public class Picture extends SimplePicture
     }   
   }
 
+    public void copy(Picture fromPic,
+                     int startRow, int startCol,
+                     int endRow, int endCol)
+    {
+        Pixel fromPixel = null;
+        Pixel toPixel = null;
+        Pixel[][] toPixels = this.getPixels2D();
+        Pixel[][] fromPixels = fromPic.getPixels2D();
+        for (int fromRow = 0, toRow = startRow;
+             fromRow < endRow &&
+                     toRow < endRow;
+             fromRow++, toRow++)
+        {
+            for (int fromCol = 0, toCol = startCol;
+                 fromCol < endCol &&
+                         toCol < endCol;
+                 fromCol++, toCol++)
+            {
+                fromPixel = fromPixels[fromRow][fromCol];
+                toPixel = toPixels[toRow][toCol];
+                toPixel.setColor(fromPixel.getColor());
+            }
+        }
+    }
+
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
@@ -348,6 +373,22 @@ public class Picture extends SimplePicture
     this.mirrorVertical();
     this.write("collage.jpg");
   }
+
+    public void myCollage()
+    {
+        Picture flower1 = new Picture("flower1.jpg");
+        Picture flower2 = new Picture("flower2.jpg");
+        this.copy(flower1,0,0);
+        this.copy(flower2,100,0, 50, 50);
+        this.copy(flower1,200,0);
+        Picture flowerNoBlue = new Picture(flower2);
+        flowerNoBlue.zeroBlue();
+        this.copy(flowerNoBlue,300,0);
+        this.copy(flower1,400,0, 300, 300);
+        this.copy(flower2,500,0);
+        this.mirrorVertical();
+        this.write("collage.jpg");
+    }
   
   
   /** Method to show large changes in color 
